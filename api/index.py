@@ -60,6 +60,7 @@ def health():
     })
 
 
+@app.route("/api/predict", methods=["POST"])
 @app.route("/predict", methods=["POST"])
 def predict():
     if model_pipeline is None:
@@ -120,6 +121,7 @@ def predict():
         return jsonify({"error": "Prediction failed. Check server logs."}), 500
 
 
+@app.route("/api/feature-info", methods=["GET"])
 @app.route("/feature-info", methods=["GET"])
 def get_feature_info():
     if feature_info is None:
